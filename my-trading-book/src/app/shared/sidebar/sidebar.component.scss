@@ -1,0 +1,92 @@
+@import "src/app/styles/colors";
+@import "src/app/styles/font";
+@import "src/app/styles/variables";
+
+/* ... (existing CSS styles) ... */
+
+/* Add styles for the custom-link class, including the cursor pointer */
+.mat-list-base .custom-link {
+  display: flex;
+  cursor: pointer; /* Add cursor pointer for all sidebar items */
+  color: $sidebar-font-color;
+  width: auto;
+  padding-left: 4px;
+
+  &.active {
+    color: $sidebar-font-color-active;
+    background-color: $sidebar-background-color-active;
+    outline: none;
+  }
+}
+
+/* Add styles for the icon and circle inside the custom-link when active */
+.mat-list-base .custom-link .mat-icon {
+  color: $sidebar-icon-color;
+}
+
+.mat-list-base .custom-link .circle {
+  background-color: $sidebar-circle-color;
+}
+
+/* Add styles for the icon and circle inside the custom-link when active */
+.mat-list-base .custom-link.active .mat-icon {
+  color: $sidebar-icon-color-active;
+}
+
+.mat-list-base .custom-link.active .circle {
+  background-color: $sidebar-icon-color-active;
+}
+
+/* Add cursor pointer for all links inside the mat-list */
+.mat-list-base .mat-list-item,
+.mat-list-base a {
+  cursor: pointer;
+}
+
+
+.mat-icon {
+  margin-right: 15px;
+  color: $sidebar-icon-color;
+}
+
+
+.sidebar-title {
+  color: $sidebar-title-color;
+  font-size: $fs-normal;
+  text-transform: uppercase;
+  margin-top: 32px;
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+.mat-list-base .mat-list-item.ui-element {
+  padding-left: 40px;
+}
+
+.circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: $sidebar-circle-color;
+  margin-right: 30px;
+}
+
+.project-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 8px;
+
+  &_yellow {
+    background-color: $yellow;
+  }
+
+  &_blue {
+    background-color: $blue;
+  }
+
+  &_pink {
+    background-color: $pink;
+  }
+}
