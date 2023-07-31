@@ -15,11 +15,12 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatDialogModule } from "@angular/material/dialog";
 import { RouterModule } from "@angular/router";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
