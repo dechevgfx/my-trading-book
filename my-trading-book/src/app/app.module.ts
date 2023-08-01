@@ -16,6 +16,9 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatDialogModule } from "@angular/material/dialog";
 import { RouterModule } from "@angular/router";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './pages/auth/auth.module';
+import { DashboardModule } from './pages/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatToolbarModule,
     MatDialogModule,
     RouterModule,
+    SharedModule,
+    AuthModule,
+    DashboardModule,
   ],
   providers: [
    ],

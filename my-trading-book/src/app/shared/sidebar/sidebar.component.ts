@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/pages/auth/services';
 import { UserService } from "src/app/services/user.service";
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models';
+import { TradeFormComponent } from 'src/app/pages/dashboard/components';
 
 @Component({
   selector: 'app-sidebar',
@@ -22,6 +23,10 @@ export class SidebarComponent {
 
   }
 
+  createTask() {
+    const dialogRef = this.dialog.open(TradeFormComponent);
+    dialogRef.afterClosed().subscribe();
+  }
   public signOut(): void {
     this.authService.logout();
   }

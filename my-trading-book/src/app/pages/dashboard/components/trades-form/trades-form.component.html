@@ -1,0 +1,47 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onPostSubmit()">
+  <h3 mat-dialog-title>Create Task</h3>
+  <div mat-dialog-content>
+    <mat-form-field class="form__input">
+      <mat-label>Title</mat-label>
+      <input type="text" matInput formControlName="title" placeholder="Call to action">
+      <mat-error *ngIf="form.touched && form.get('title')?.hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form__input">
+      <mat-label>Pair</mat-label>
+      <input type="text" matInput formControlName="pair" placeholder="Trading Pair">
+      <mat-error *ngIf="form.touched && form.get('pair')?.hasError('required')">
+        Pair is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form__input">
+      <mat-label>Image URL</mat-label>
+      <input type="text" matInput formControlName="image" placeholder="URL">
+      <mat-error *ngIf="form.touched && form.get('image')?.hasError('required')">
+        Image is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form__input">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let status of statuses" [value]="status.value">
+          {{status.label}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.touched && form.get('status')?.hasError('required')">
+        Type is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="form-actions">
+    <button class="form-actions__cancel" (click)="close()" mat-button>Cancel</button>
+    <button [disabled]="loading" class="form-actions__create" mat-raised-button color="primary" type="submit">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Create task
+    </button>
+  </div>
+</form>
