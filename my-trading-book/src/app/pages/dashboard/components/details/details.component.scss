@@ -1,0 +1,42 @@
+*{
+  width: 100%;
+}
+.center-container {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.details-card {
+  width: 100%;
+  position: relative;
+}
+
+.tick-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 24px;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // padding: 16px;
+}
+
+.image-container img {
+  max-width: 100%;
+  max-height: 100%; /* Adjust the image height to fill the container */
+  object-fit: cover; /* Make the image cover the container */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}

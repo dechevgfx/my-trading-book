@@ -1,0 +1,24 @@
+<div class="center-container">
+    <mat-card class="details-card">
+        <div class="image-container">
+            <img src="{{ selectedTrade?.image }}" alt="Trade Image" />
+        </div>
+        <mat-card-header>
+            <mat-card-title>{{ selectedTrade?.title }}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <!-- Add your detailed content here -->
+            <p>{{ selectedTrade?.pair }}</p>
+            <p>{{ selectedTrade?.type }}</p>
+            <p>{{ selectedTrade?.userId }}</p>
+            <p>{{ selectedTrade?.date }}</p>
+        </mat-card-content>
+
+        <mat-card-actions class="button-container">
+            <!-- Add any actions or buttons here -->
+            <button mat-raised-button color="primary">LIKE</button>
+            <button mat-raised-button color="accent">COMMENT</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

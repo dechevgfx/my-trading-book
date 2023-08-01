@@ -12,10 +12,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DashboardPageComponent } from './containers';
-import {  SettingsMenuComponent, TradeFormComponent, UserTradesComponent, } from './components';
+import { AllTradesComponent, DashboardPageComponent } from './containers';
+import { SettingsMenuComponent, TradeFormComponent, UserTradesComponent, } from './components';
 import { SharedModule } from '../../shared/shared.module';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { DetailsComponent } from './components/details/details.component';
+import { TradeComponent } from './components/trade/trade.component';
 
 
 
@@ -27,6 +29,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     TradeFormComponent,
     UserTradesComponent,
     SettingsMenuComponent,
+    AllTradesComponent,
+    DetailsComponent,
+    TradeComponent,
 
   ],
   imports: [

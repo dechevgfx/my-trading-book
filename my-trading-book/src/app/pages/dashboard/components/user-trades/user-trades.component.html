@@ -1,22 +1,22 @@
 <mat-card class="userTrades">
-  <mat-card-title class="tasks__header">
-    <h5 class="tasks__title">Tasks</h5>
+  <mat-card-title class="userTrades__header">
+    <h5 class="userTrades__title">Tasks</h5>
     <!--    <app-settings-menu></app-settings-menu>-->
   </mat-card-title>
 
-  <mat-card-content class="tasks__content">
-    <table mat-table [dataSource]="userTradesData" class="tasks__table">
+  <mat-card-content class="userTrades__content">
+    <table mat-table [dataSource]="userTradesData" class="userTrades__table">
 
-      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}" class="tasks__table-row">
-        <th mat-header-cell *matHeaderCellDef class="tasks__table-row-title" [ngClass]="column.toLowerCase()">
+      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}" class="userTrades__table-row">
+        <th mat-header-cell *matHeaderCellDef class="userTrades__table-row-title" [ngClass]="column.toLowerCase()">
           {{column}}
         </th>
-        <td mat-cell *matCellDef="let element" class="tasks__table-content" [ngClass]="column.toLowerCase()">
+        <td mat-cell *matCellDef="let element" class="userTrades__table-content" [ngClass]="column.toLowerCase()">
           <span *ngIf="column !== 'type'">{{element[column]}}</span>
-          <div *ngIf="column === 'type'" class="tasks__content-badge" [ngClass]="element[column].toLowerCase()">
+          <div *ngIf="column === 'type'" class="userTrades__content-badge" [ngClass]="element[column].toLowerCase()">
             <span>{{transformStatus(element[column])}}</span>
           </div>
-          <span *ngIf="column === 'actions'" class="tasks__content-menu">
+          <span *ngIf="column === 'actions'" class="userTrades__content-menu">
             <app-settings-menu [data]="element"></app-settings-menu>
           </span>
         </td>

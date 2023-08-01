@@ -1,0 +1,12 @@
+<div class="card-container">
+    <mat-card *ngFor="let trade of tradeData" >
+        <mat-card-header>
+            <mat-card-title>{{ trade.title }}</mat-card-title>
+            <mat-card-subtitle>{{ trade.date }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ trade.image }}" alt="{{ trade.title }}" />
+        <mat-card-actions>
+            <button mat-button (click)="goToTradeDetails(trade)">VIEW DETAILS</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
