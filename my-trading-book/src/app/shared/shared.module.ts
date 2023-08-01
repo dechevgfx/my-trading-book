@@ -13,13 +13,15 @@ import { HeaderModule } from './header/header.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
+import { LiveChartComponent } from './live-chart/live-chart.component';
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    LiveChartComponent
   ],
   imports: [
     HeaderModule,

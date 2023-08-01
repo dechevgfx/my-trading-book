@@ -4,11 +4,18 @@ import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AllTradesComponent, DashboardPageComponent } from './pages/dashboard/containers';
 import { DetailsComponent } from './pages/dashboard/components/details/details.component';
+import { LiveChartComponent } from './shared/live-chart/live-chart.component';
 
 const redirectLoggedInToItems = () => redirectLoggedInTo(['dashboard']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 const routes: Routes = [
+  {
+    path: 'live-chart',
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+    component: LiveChartComponent
+  },
   {
     path: 'all-trades',
     canActivate: [AngularFireAuthGuard],
