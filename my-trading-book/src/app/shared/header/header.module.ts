@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
 
 import { HeaderComponent } from './containers';
-import { UserComponent } from './components';
+import { UserComponent, UserProfileComponent } from './components';
 import { ShortNamePipe } from './pipes';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   declarations: [
     HeaderComponent,
     UserComponent,
+    UserProfileComponent,
     ShortNamePipe,
   ],
   exports: [

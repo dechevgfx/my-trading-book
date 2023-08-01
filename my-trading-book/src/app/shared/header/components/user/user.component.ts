@@ -3,6 +3,7 @@ import { routes } from 'src/app/consts';
 import { MatDialog } from "@angular/material/dialog";
 
 import { User } from "src/app/models";
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class UserComponent {
   constructor(private dialog: MatDialog) {
   }
 
-
+  showUserInfo() {
+    const dialogRef = this.dialog.open(UserProfileComponent, {data: this.user})
+    dialogRef.afterClosed().subscribe();
+  }
   public signOutEmit(): void {
     this.signOut.emit();
   }

@@ -1,0 +1,52 @@
+@import "src/app/styles/colors";
+@import "src/app/styles/font";
+
+.user-info-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user {
+  display: grid;
+  grid-template-columns: 200px 300px;
+  gap: 24px;
+
+  &-image {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+  }
+
+  &-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+.form {
+  width: 100%;
+
+  &__input {
+    width: 100%;
+  }
+}
+
+.form-actions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__create {
+    margin-left: 10px;
+  }
+
+  &__cancel {
+    font-size: 12px;
+    font-weight: $fw-lighter;
+    color: $blue;
+  }
+}

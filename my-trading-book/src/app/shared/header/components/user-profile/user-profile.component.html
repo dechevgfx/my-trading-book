@@ -1,0 +1,64 @@
+<h3 mat-dialog-title class="user-info-title">
+  User Profile
+  <mat-icon (click)="toggleEdit()">edit</mat-icon>
+</h3>
+<div mat-dialog-content>
+  <div class="user">
+    <img class="user-image" src="{{data.photoURL || './assets/auth/person-placeholder.jpg'}}"
+         alt="{{data.displayName}}">
+    <div *ngIf="!edit" class="user-data">
+      <p><strong>DisplayName: </strong>{{data?.displayName}}</p>
+      <p><strong>Email: </strong>{{data?.email}}</p>
+      <p><strong>Additional Info: </strong>{{data?.additionalInfo}}</p>
+    </div>
+
+    <div *ngIf="edit" class="user-edit">
+      <form class="form" [formGroup]="form">
+        <div mat-dialog-content>
+          <mat-form-field class="form__input">
+            <mat-label>Display name</mat-label>
+            <input type="text" matInput formControlName="displayName" placeholder="Call to action">
+          </mat-form-field>
+          <mat-form-field class="form__input">
+            <mat-label>Photo url</mat-label>
+            <input type="text" matInput formControlName="photoURL" placeholder="Call to action">
+          </mat-form-field>
+          <mat-form-field class="form__input">
+            <mat-label>Additional info</mat-label>
+            <input type="text" matInput formControlName="additionalInfo" placeholder="Call to action">
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+<div mat-dialog-actions class="form-actions">
+  <button *ngIf="!edit" (click)="close()" class="form-actions__cancel" mat-button>Close</button>
+  <button *ngIf="edit" (click)="toggleEdit()" class="form-actions__cancel" mat-button>Cancel</button>
+  <button *ngIf="edit" (click)="onSubmit()" class="form-actions__create" mat-raised-button color="primary">
+    Update User Profile
+  </button>
+</div>
+
+
+<!--<form class="form" [formGroup]="form" (ngSubmit)="onPostSubmit()">-->
+<!--  <h3 mat-dialog-title>Create Task</h3>-->
+<!--  <div mat-dialog-content>-->
+<!--    <mat-form-field class="form__input">-->
+<!--      <mat-label>Title</mat-label>-->
+<!--      <input type="text" matInput formControlName="title" placeholder="Call to action">-->
+<!--      <mat-error *ngIf="form.touched && form.get('title')?.hasError('required')">-->
+<!--        Title is <strong>required</strong>-->
+<!--      </mat-error>-->
+<!--    </mat-form-field>-->
+<!--  </div>-->
+<!--  <div mat-dialog-actions class="form-actions">-->
+<!--    <button class="form-actions__cancel" mat-button>Cancel</button>-->
+<!--    <button [disabled]="loading" class="form-actions__create" mat-raised-button color="primary" type="submit">-->
+<!--      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>-->
+<!--      Create task-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</form>-->
+<!--<div>it work</div>-->

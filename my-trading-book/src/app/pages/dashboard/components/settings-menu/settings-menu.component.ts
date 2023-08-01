@@ -15,14 +15,14 @@ export class SettingsMenuComponent {
   }
 
 
-  editTask() {
+  editTrade() {
     const dialogRef = this.dialog.open(TradeFormComponent, {data: this.data})
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
-  deleteTask() {
+  deleteTrade() {
     this.userTradeService.delete(this.data)
   }
 
