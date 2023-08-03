@@ -1,7 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { Trade } from 'src/app/models';
+import { LikeService } from 'src/app/services/like.service';
 import { ActivatedRoute } from '@angular/router';
-import { Trade } from 'src/app/models/trade';
 import { TradeService } from 'src/app/services';
 
 @Component({
@@ -11,8 +11,14 @@ import { TradeService } from 'src/app/services';
 })
 export class DetailsComponent implements OnInit {
   selectedTrade: Trade | undefined;
+  numLikes: number = 0;
+  isLiked: boolean = false;
 
-  constructor(private route: ActivatedRoute, private tradeService: TradeService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private tradeService: TradeService,
+    private likeService: LikeService
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -29,4 +35,11 @@ export class DetailsComponent implements OnInit {
       this.selectedTrade = trades.find((trade: Trade) => trade.id === tradeId);
     });
   }
+
+  like(): void {
+    if (this.selectedTrade !== undefined) {
+      this.likeService.like(this.selectedTrade);
+    }
+  }
+
 }

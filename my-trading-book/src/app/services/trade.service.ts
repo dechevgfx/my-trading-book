@@ -35,7 +35,11 @@ export class TradeService {
     return this.fs.collection<Trade>(`trades`).doc(`${trade.id}`).delete()
   }
 
-  getTasksCreatedByCurrentUser() {
+  getTradesCreatedByCurrentUser() {
     return this.fs.collection<Trade>(`trades`, ref => ref.where('userId', '==', this.userId)).valueChanges({ idField: 'id' });
   }
+  getTradesLikedByCurrentUser() {
+    return this.fs.collection<Trade>(`trades`, ref => ref.where('likedBy', 'array-contains', this.userId)).valueChanges({ idField: 'id' });
+  }
+
 }

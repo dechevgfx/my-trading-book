@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { TradeFormComponent } from "src/app/pages/dashboard/components";
 import { TradeService } from "src/app/services/trade.service";
-import {Trade} from "src/app/models/trade";
+import { Trade } from "src/app/models/trade";
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,16 +17,16 @@ export class DashboardPageComponent implements OnInit {
     public dialog: MatDialog,
     private userTradeService: TradeService,
     private router: Router
-  ) {}
+  ) { }
 
-ngOnInit() {
-  this.fetchTasksCreatedByCurrentUser();
-}
+  ngOnInit() {
+    this.fetchTradesCreatedByCurrentUser();
+  }
 
-fetchTasksCreatedByCurrentUser() {
-  this.userTradeService.getTasksCreatedByCurrentUser().subscribe((userTrades) => {
-    this.userTrades = userTrades;
-  });
-}
+  fetchTradesCreatedByCurrentUser() {
+    this.userTradeService.getTradesCreatedByCurrentUser().subscribe((userTrades) => {
+      this.userTrades = userTrades;
+    });
+  }
 
 }

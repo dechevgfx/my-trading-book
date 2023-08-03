@@ -4,7 +4,6 @@ export type User = {
   email: string;
   photoURL: string;
   uid: string;
-  likes: number;
   comments: [];
 }
 

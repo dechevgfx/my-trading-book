@@ -8,6 +8,7 @@ import { User } from "src/app/models";
 export class UserService {
   constructor(private fs: AngularFirestore) {
   }
+  
 
   userData() {
     const userId = localStorage.getItem('uid')
