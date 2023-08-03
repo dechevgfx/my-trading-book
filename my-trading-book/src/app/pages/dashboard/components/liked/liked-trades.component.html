@@ -1,0 +1,29 @@
+<mat-card class="likedTrades">
+  <mat-card-title class="likedTrades__header">
+    <h5 class="likedTrades__title">Tasks</h5>
+    <!--    <app-settings-menu></app-settings-menu>-->
+  </mat-card-title>
+
+  <mat-card-content class="likedTrades__content">
+    <table mat-table [dataSource]="likedTradesData" class="likedTrades__table">
+
+      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}" class="likedTrades__table-row">
+        <th mat-header-cell *matHeaderCellDef class="likedTrades__table-row-title" [ngClass]="column.toLowerCase()">
+          {{column}}
+        </th>
+        <td mat-cell *matCellDef="let element" class="likedTrades__table-content" [ngClass]="column.toLowerCase()">
+          <span *ngIf="column !== 'type'">{{element[column]}}</span>
+          <div *ngIf="column === 'type'" class="likedTrades__content-badge" [ngClass]="element[column].toLowerCase()">
+            <span>{{transformStatus(element[column])}}</span>
+          </div>
+          <span *ngIf="column === 'actions'" class="likedTrades__content-menu">
+            <app-settings-menu [data]="element"></app-settings-menu>
+          </span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

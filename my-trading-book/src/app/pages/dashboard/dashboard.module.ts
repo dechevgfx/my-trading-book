@@ -19,6 +19,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { DetailsComponent } from './components/details/details.component';
 import { TradeComponent } from './components/trade/trade.component';
 import { LikedComponent } from './containers/liked/liked.component';
+import { LikedTradesComponent } from './components/liked/liked-trades.component';
 
 
 
@@ -33,7 +34,8 @@ import { LikedComponent } from './containers/liked/liked.component';
     AllTradesComponent,
     DetailsComponent,
     TradeComponent,
-    LikedComponent
+    LikedComponent,
+    LikedTradesComponent,
   ],
   imports: [
     CommonModule,

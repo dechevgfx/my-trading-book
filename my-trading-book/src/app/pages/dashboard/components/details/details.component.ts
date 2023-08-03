@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Trade } from 'src/app/models';
-import { LikeService } from 'src/app/services/like.service';
+import { Trade, User } from 'src/app/models';
 import { ActivatedRoute } from '@angular/router';
-import { TradeService } from 'src/app/services';
+import { TradeService, UserService } from 'src/app/services';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-details',
@@ -13,12 +13,30 @@ export class DetailsComponent implements OnInit {
   selectedTrade: Trade | undefined;
   numLikes: number = 0;
   isLiked: boolean = false;
+  private userUid: string | null = null; // Store the user UID here
+
 
   constructor(
     private route: ActivatedRoute,
     private tradeService: TradeService,
-    private likeService: LikeService
-  ) { }
+    private userService: UserService,
+    private auth: AngularFireAuth) {
+    this.auth.authState.subscribe((user) => {
+      if (user) {
+        this.userUid = user.uid;
+      } else {
+        this.userUid = null;
+      }
+    });
+  }
+
+  isOwner() {
+    if (this.userUid == this.selectedTrade?.userId) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -38,7 +56,7 @@ export class DetailsComponent implements OnInit {
 
   like(): void {
     if (this.selectedTrade !== undefined) {
-      this.likeService.like(this.selectedTrade);
+      this.tradeService.like(this.selectedTrade);
     }
   }
 

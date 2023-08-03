@@ -22,12 +22,12 @@ export class LikedComponent implements OnInit {
 
     ngOnInit() {
         // Retrieve the user ID from local storage
-        this.currentUserId = localStorage.getItem('currentUserId') || '';
-        this.fetchLikedCreatedByCurrentUser();
+        this.currentUserId = localStorage.getItem('uid') || '';
+        this.fetchLikedBy();
 
     }
 
-    fetchLikedCreatedByCurrentUser() {
+    fetchLikedBy() {
         this.userTradeService.getTradesLikedByCurrentUser().subscribe((userTrades) => {
             this.userTrades = userTrades;
         });
