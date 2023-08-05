@@ -39,6 +39,7 @@ export class TradeFormComponent implements OnInit {
       title: [this.data?.title || '', Validators.required],
       pair: [this.data?.pair || '', Validators.required],
       type: [this.data?.type || null, Validators.required],
+      description: [this.data?.description || null, Validators.required],
       image: [this.data?.image || ''],
       likedBy: [this.data?.likedBy || []],
       date: [this.data?.date || null],

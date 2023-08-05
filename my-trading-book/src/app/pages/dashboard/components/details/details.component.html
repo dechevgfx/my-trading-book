@@ -12,14 +12,14 @@
                 <!-- Add your detailed content here -->
                 <p>{{ selectedTrade?.pair }}</p>
                 <p>{{ selectedTrade?.type }}</p>
-                <p>{{ selectedTrade?.userId }}</p>
+                <p>{{ selectedTrade?.description }}</p>
                 <p>{{ selectedTrade?.date }}</p>
             </mat-card-content>
 
             <mat-card-actions class="button-container">
                 <!-- Add any actions or buttons here -->
                 <button
-                    *ngIf="!isOwner()"
+                    *ngIf="!isLikedByUser()"
                     mat-raised-button
                     (click)="like()"
                     color="primary"

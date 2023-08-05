@@ -22,7 +22,7 @@
         <button
             (click)="disLike()"
             class="settings-menu__item"
-            *ngIf="!isOwner()"
+            *ngIf="isLikedByUser()"
             mat-menu-item
         >
             Dislike

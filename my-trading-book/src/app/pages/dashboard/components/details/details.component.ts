@@ -30,6 +30,18 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  isLikedByUser() {
+    if (this.selectedTrade !== undefined) {
+      if (this.selectedTrade.likedBy.includes(this.userUid ?? '')) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+
   isOwner() {
     if (this.userUid == this.selectedTrade?.userId) {
       return true

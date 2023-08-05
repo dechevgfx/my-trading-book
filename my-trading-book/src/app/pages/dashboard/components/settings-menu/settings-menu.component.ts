@@ -23,8 +23,32 @@ export class SettingsMenuComponent {
     });
   }
 
+  isLikedByUser() {
+    const pathname = window.location.pathname;
+
+    // Split the pathname by slashes and get the last component
+    const pathComponents = pathname.split('/');
+    const lastPathComponent = pathComponents[pathComponents.length - 1];
+
+    if (this.data !== undefined) {
+      if (this.data.likedBy.includes(this.userUid ?? '') && lastPathComponent == "liked") {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+
   isOwner() {
-    if (this.userUid == this.data.userId) {
+    const pathname = window.location.pathname;
+
+    // Split the pathname by slashes and get the last component
+    const pathComponents = pathname.split('/');
+    const lastPathComponent = pathComponents[pathComponents.length - 1];
+
+    if (this.userUid == this.data.userId && lastPathComponent == "dashboard") {
       return true
     } else {
       return false

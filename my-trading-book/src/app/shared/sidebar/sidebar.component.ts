@@ -16,14 +16,14 @@ import { TradeFormComponent } from 'src/app/pages/dashboard/components';
 export class SidebarComponent {
   public routes: typeof routes = routes;
   public user$!: Observable<User | undefined>
-  constructor(public dialog: MatDialog, private tasksService: TradeService, private authService: AuthService,
-    private userService: UserService, private storageService: StorageService) {
+  constructor(public dialog: MatDialog, private authService: AuthService,
+    private userService: UserService) {
     this.user$ = this.userService.userData()
 
 
   }
 
-  createTask() {
+  uploadTrade() {
     const dialogRef = this.dialog.open(TradeFormComponent);
     dialogRef.afterClosed().subscribe();
   }

@@ -1,0 +1,12 @@
+<div class="card-container" *ngIf="topThreeTrades.length > 0">
+    <mat-card *ngFor="let trade of topThreeTrades">
+        <mat-card-header>
+            <mat-card-title>{{ trade.pair }}</mat-card-title>
+            <mat-card-subtitle>{{ trade.type }}</mat-card-subtitle>
+            <mat-card-subtitle
+                >Liked By: {{ trade.likedBy.length }} users</mat-card-subtitle
+            >
+        </mat-card-header>
+        <img mat-card-image src="{{ trade.image }}" alt="{{ trade.title }}" />
+    </mat-card>
+</div>

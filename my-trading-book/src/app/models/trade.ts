@@ -4,6 +4,7 @@ export type Trade = {
   pair: string,
   image: string,
   type: string,
+  description: string,
   likedBy: string[],
   userId: string,
   date: Date,
