@@ -7,9 +7,9 @@
     <img class="user-image" src="{{data.photoURL || './assets/auth/person-placeholder.jpg'}}"
          alt="{{data.displayName}}">
     <div *ngIf="!edit" class="user-data">
-      <p><strong>DisplayName: </strong>{{data?.displayName}}</p>
-      <p><strong>Email: </strong>{{data?.email}}</p>
-      <p><strong>Additional Info: </strong>{{data?.additionalInfo}}</p>
+      <p><strong>DisplayName: </strong>{{data.displayName}}</p>
+      <p><strong>Email: </strong>{{data.email}}</p>
+      <p><strong>Additional Info: </strong>{{data.additionalInfo}}</p>
     </div>
 
     <div *ngIf="edit" class="user-edit">
