@@ -25,7 +25,6 @@
   &__content {
     height: 427px;
     overflow-y: auto;
-    overflow-x: scroll;
 
     @media (max-width: $small) {
       height: auto;
@@ -41,7 +40,6 @@
   }
 
   &__table-row-title {
-    color: $dark-grey;
     font-size: $fs-small;
     font-weight: $fw-lighter;
     line-height: 24px;
@@ -51,7 +49,6 @@
 
 
   &__table-content {
-    color: $dark-grey;
     font-size: $fs-small;
     padding: 20px;
   }

@@ -3,11 +3,8 @@
 
 .settings-button {
   box-shadow: none;
-  background-color: $settings-button-background-color;
   color: $settings-button-color;
-
   &:hover {
-    background-color: $blue;
     color: $settings-button-color-hover;
   }
 
@@ -21,9 +18,5 @@
 
   &__item {
     color: $dark-grey;
-
-    &:hover {
-      background-color: $settings-menu-background-color-hover;
-    }
   }
 }

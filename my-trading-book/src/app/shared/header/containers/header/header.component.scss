@@ -3,7 +3,6 @@
 @import 'src/app/styles/variables';
 
 .header {
-  background-color: $header-background-color;
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -16,24 +15,15 @@
   }
 
   &__title-button {
-    background-color: $header-button-background-color;
     box-shadow: none;
 
-    &:hover {
-      background-color: $header-button-background-color-hover;
-    }
 
     @media (max-width: $small) {
       margin-top: 0;
     }
   }
 
-  &__title-button-icon {
-    color: $header-button-font-color;
-  }
-
   &__title-text {
-    color: $header-title-font-color;
     margin-left: 32px;
     font-weight: $fw-lighter;
 
@@ -51,7 +41,6 @@
     border-color: $green;
     margin-right: 16px;
     text-transform: uppercase;
-    background-color: $green;
     color: white;
 
     letter-spacing: .0892857143em;

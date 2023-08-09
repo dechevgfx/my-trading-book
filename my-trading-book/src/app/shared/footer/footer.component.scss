@@ -31,7 +31,6 @@
 
   &__link-item {
     margin-right: 16px;
-    color: $footer-link-color;
     text-decoration: none;
 
     &:hover {
@@ -42,16 +41,10 @@
 
 .mat-mini-fab {
   box-shadow: none;
-  background-color: inherit;
   width: 46px;
   height: 46px;
-
-  &:hover {
-    background-color: $footer-icon-background-color-hover;
-  }
 }
 
 .mat-icon {
-  color: $footer-icon-color;
   padding: 3px 0 0 0;
 }
