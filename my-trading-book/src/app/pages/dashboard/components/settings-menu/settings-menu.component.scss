@@ -3,11 +3,6 @@
 
 .settings-button {
   box-shadow: none;
-  color: $settings-button-color;
-  &:hover {
-    color: $settings-button-color-hover;
-  }
-
   &__icon {
     color: inherit;
   }
@@ -15,8 +10,4 @@
 
 .settings-menu {
   position: absolute;
-
-  &__item {
-    color: $dark-grey;
-  }
 }

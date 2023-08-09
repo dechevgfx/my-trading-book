@@ -38,10 +38,8 @@
   align-items: center;
 
   .unlock-button {
-    border-color: $green;
     margin-right: 16px;
     text-transform: uppercase;
-    color: white;
 
     letter-spacing: .0892857143em;
     @media (max-width: $small) {

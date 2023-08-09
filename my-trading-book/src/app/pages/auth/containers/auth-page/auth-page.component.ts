@@ -9,15 +9,15 @@ import { MatTabGroup } from '@angular/material/tabs';
 })
 export class AuthPageComponent {
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
-
+  public message: string = '';
   constructor(
     private authService: AuthService,
   ) {
+    
   }
 
   public sendLoginForm({ email, password }: { email: string, password: string }): void {
     this.authService.login(email, password);
-
   }
 
   public loginWithGoogle(): void {
@@ -32,7 +32,7 @@ export class AuthPageComponent {
     this.authService.signIn(email, password);
   }
   showForgotPassword() {
-    this.tabGroup.selectedIndex = 2; // Index of the "Forgot Password" tab in the tab group
+    this.tabGroup.selectedIndex = 2; 
   }
 
 }

@@ -66,16 +66,17 @@ export class AuthService {
     this.fs.collection('users').doc(`${user?.uid}`).set({
       uid: user?.uid,
       email: user?.email,
-    }, {merge: true})
+    }, { merge: true })
   }
 
   resetPassword(email: string) {
     this.auth.sendPasswordResetEmail(email).then(() => {
+      this.router.navigate([this.routers.LOGIN]);
       // Handle success (e.g., show a message or redirect to login page)
       console.log('Password reset email sent successfully.');
-    }).catch((error) => {
+    }).catch(() => {
       // Handle error (e.g., show an error message)
-      console.error('Error sending password reset email:', error);
+      console.error('Error sending password reset email:');
     });
   }
 

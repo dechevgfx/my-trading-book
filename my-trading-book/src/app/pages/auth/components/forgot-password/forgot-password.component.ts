@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ForgotPasswordComponent {
   resetPasswordForm: FormGroup;
+  public message: string = '';
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.resetPasswordForm = this.formBuilder.group({
@@ -20,6 +21,8 @@ export class ForgotPasswordComponent {
     if (this.resetPasswordForm.valid) {
       const email = this.resetPasswordForm.value.email;
       this.authService.resetPassword(email);
+      
+
     }
   }
 }
