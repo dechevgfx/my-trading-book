@@ -1,6 +1,6 @@
 <mat-card class="userTrades">
   <mat-card-title class="userTrades__header">
-    <h5 class="userTrades__title">My Trades</h5>
+    <h5 class="userTrades__title">MY TRADES</h5>
     <!--    <app-settings-menu></app-settings-menu>-->
   </mat-card-title>
 
@@ -14,7 +14,7 @@
         <td mat-cell *matCellDef="let element" class="userTrades__table-content" [ngClass]="column.toLowerCase()">
           <span *ngIf="column !== 'type'">{{element[column]}}</span>
           <div *ngIf="column === 'type'" class="userTrades__content-badge" [ngClass]="element[column].toLowerCase()">
-            <span>{{transformStatus(element[column])}}</span>
+            <span>{{type(element[column])}}</span>
           </div>
           <span *ngIf="column === 'actions'" class="userTrades__content-menu">
             <app-settings-menu [data]="element"></app-settings-menu>

@@ -1,36 +1,9 @@
-<div class="not-found-page">
-  <div class="not-found-page__content">
-    <div class="not-found-page__title">
-      <img
-        class="not-found-page__title-img"
-        src="./assets/not-found/logo.svg"
-        alt="logo"
-      />
-      <h3 class="not-found-page__title-text">My Trading Book</h3>
-    </div>
-
-    <mat-card class="not-found-page__card">
-      <mat-card-content class="not-found-page__content">
-        <h1 class="not-found-page__card-title">404</h1>
-
-        <p class="not-found-page__card-sub-title">
-          Oops.
-        </p>
-        <p class="not-found-page__card-sub-title">
-          Looks like the page you're looking for no longer exists
-        </p>
-        <p class="not-found-page__card-sub-title">
-          Go back to home or login to your account to continue.
-        </p>
-        <button
-          class="not-found-page__card-button"
-          mat-raised-button
-          color="primary"
-          [routerLink]="routes.DASHBOARD"
-        >
-          Back to Home
-        </button>
-      </mat-card-content>
-    </mat-card>
-  </div>
+<div class="not-found-container">
+  <mat-card class="not-found-card">
+      <mat-card-title>404 - Page Not Found</mat-card-title>
+      <h1>The page you are looking for doesn't exist.</h1>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/">GO TO DASHBOARD</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

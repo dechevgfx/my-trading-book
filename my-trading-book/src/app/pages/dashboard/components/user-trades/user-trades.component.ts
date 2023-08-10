@@ -10,7 +10,7 @@ export class UserTradesComponent {
   @Input() userTradesData!: Trade[];
   public displayedColumns: string[] = ['pair', 'type', 'date', 'actions'];
 
-  transformStatus(status: string): string {
-    return status.replace('_', ' ')
+  type(type: string): string {
+    return type.replace('_', ' ')
   }
 }

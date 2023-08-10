@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
     styleUrls: ['./liked.component.scss']
 })
 export class LikedComponent implements OnInit {
-    userTrades!: (Trade & { id: string; })[]
+    likedTrades!: (Trade & { id: string; })[]
 
     currentUserId: string = '';
 
     constructor(
         public dialog: MatDialog,
-        private userTradeService: TradeService,
+        private likedTradeService: TradeService,
         private router: Router
     ) { }
 
@@ -28,8 +28,8 @@ export class LikedComponent implements OnInit {
     }
 
     fetchLikedBy() {
-        this.userTradeService.getTradesLikedByCurrentUser().subscribe((userTrades) => {
-            this.userTrades = userTrades;
+        this.likedTradeService.getTradesLikedByCurrentUser().subscribe((likedTrades) => {
+            this.likedTrades = likedTrades;
         });
     }
 }

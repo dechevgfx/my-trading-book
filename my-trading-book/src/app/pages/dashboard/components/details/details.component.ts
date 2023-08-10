@@ -15,7 +15,6 @@ export class DetailsComponent implements OnInit {
   isLiked: boolean = false;
   private userUid: string | null = null; // Store the user UID here
 
-
   constructor(
     private route: ActivatedRoute,
     private tradeService: TradeService,
@@ -28,6 +27,7 @@ export class DetailsComponent implements OnInit {
         this.userUid = null;
       }
     });
+    
   }
 
   isLikedByUser() {

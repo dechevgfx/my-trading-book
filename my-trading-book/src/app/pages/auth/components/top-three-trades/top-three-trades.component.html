@@ -1,17 +1,22 @@
 <div class="card-container" *ngIf="topThreeTrades.length > 0">
-    <mat-card *ngFor="let trade of topThreeTrades" class="trade-card">
-      <div class="trade-content">
-        <div class="trade-image">
-          <img src="{{ trade.image }}" alt="{{ trade.title }}" />
-        </div>
-        <div class="trade-details">
-          <mat-card-header>
-            <mat-card-title>{{ trade.pair }}</mat-card-title>
-            <mat-card-subtitle>{{ trade.type }}</mat-card-subtitle>
-            <mat-card-subtitle>Liked By: {{ trade.likedBy.length }} users</mat-card-subtitle>
-          </mat-card-header>
-        </div>
+  <h2>MOST LIKED TRADES:</h2>
+
+  <mat-card *ngFor="let trade of topThreeTrades" class="trade-card">
+    <div class="trade-content">
+      <div class="trade-image">
+        <img src="{{ trade.image }}" alt="{{ trade.title }}" />
       </div>
-    </mat-card>
-  </div>
-  
+      <div class="trade-details">
+        <mat-card-header>
+          <mat-card-title>{{ trade.pair }}</mat-card-title>
+          <div class="content-type" [ngClass]="trade.type.toLocaleLowerCase()">
+            <span>{{ trade.type }}</span>
+          </div>
+          <div class="content-likes">
+            <span>{{ trade.likedBy.length }} likes</span>
+          </div></mat-card-header
+        >
+      </div>
+    </div>
+  </mat-card>
+</div>

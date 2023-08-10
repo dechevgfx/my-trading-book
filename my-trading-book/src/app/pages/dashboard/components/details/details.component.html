@@ -1,32 +1,36 @@
 <app-layout>
-    <div class="image-container">
-        <img src="{{ selectedTrade?.image }}" alt="Trade Image" />
-    </div>
-    <div class="center-container">
-        <mat-card class="details-card">
-            <mat-card-header>
-                <mat-card-title>{{ selectedTrade?.title }}</mat-card-title>
-            </mat-card-header>
+  <div class="image-container">
+    <img src="{{ selectedTrade?.image }}" alt="Trade Image" />
+  </div>
+  <div class="center-container">
+    <mat-card class="details-card">
+      <mat-card-header>
+        <mat-card-title>{{ selectedTrade?.title }}</mat-card-title>
+      </mat-card-header>
 
-            <mat-card-content>
-                <!-- Add your detailed content here -->
-                <p>{{ selectedTrade?.pair }}</p>
-                <p>{{ selectedTrade?.type }}</p>
-                <p>{{ selectedTrade?.description }}</p>
-                <p>{{ selectedTrade?.date }}</p>
-            </mat-card-content>
+      <mat-card-actions class="button-container">
+        <button
+          *ngIf="!isLikedByUser()"
+          mat-fab
+          (click)="like()"
+          color="primary"
+        >
+          <mat-icon>thumb_up</mat-icon>
+        </button>
+      </mat-card-actions>
 
-            <mat-card-actions class="button-container">
-                <!-- Add any actions or buttons here -->
-                <button
-                    *ngIf="!isLikedByUser()"
-                    mat-raised-button
-                    (click)="like()"
-                    color="primary"
-                >
-                    LIKE
-                </button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
+      <mat-card-content>
+        <!-- Add your detailed content here -->
+        <p>{{ selectedTrade?.pair }}</p>
+        <div class="content-type" [ngClass]="selectedTrade?.type">
+          <span>{{ selectedTrade?.type }}</span>
+        </div>
+        <p>{{ selectedTrade?.date }}</p>
+      </mat-card-content>
+
+      <mat-card-content>
+        <p>{{ selectedTrade?.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </app-layout>

@@ -1,8 +1,11 @@
-@import 'src/app/styles/variables';
+@import "src/app/styles/variables";
+.container {
+  margin: 15px;
+}
 
 .charts-wrapper {
   display: flex;
-  margin: 0 8px;
+  margin: 0, 8px;
 
   @media (max-width: $normal) {
     flex-wrap: wrap;

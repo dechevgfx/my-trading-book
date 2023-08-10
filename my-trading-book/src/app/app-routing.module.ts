@@ -48,6 +48,11 @@ const routes: Routes = [
     data: { authGuardPipe: redirectLoggedInToItems }
   },
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login' // Redirect to /login by default when the path is empty
+  },
+  {
     path: '404',
     component: NotFoundComponent
   },
