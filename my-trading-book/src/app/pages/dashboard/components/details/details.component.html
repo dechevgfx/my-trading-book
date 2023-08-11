@@ -1,36 +1,37 @@
 <app-layout>
-  <div class="image-container">
-    <img src="{{ selectedTrade?.image }}" alt="Trade Image" />
-  </div>
-  <div class="center-container">
-    <mat-card class="details-card">
-      <mat-card-header>
-        <mat-card-title>{{ selectedTrade?.title }}</mat-card-title>
-      </mat-card-header>
-
-      <mat-card-actions class="button-container">
-        <button
-          *ngIf="!isLikedByUser()"
-          mat-fab
-          (click)="like()"
-          color="primary"
-        >
-          <mat-icon>thumb_up</mat-icon>
-        </button>
-      </mat-card-actions>
-
-      <mat-card-content>
-        <!-- Add your detailed content here -->
-        <p>{{ selectedTrade?.pair }}</p>
-        <div class="content-type" [ngClass]="selectedTrade?.type">
-          <span>{{ selectedTrade?.type }}</span>
+  <div class="card-container">
+    <a [externalLink]="selectedTrade?.image" class="hero-image-container">
+        <img
+          class="hero-image"
+          [src]="selectedTrade?.image"
+          [alt]="selectedTrade?.image"
+        />
+      </a>
+    <main class="main-content">
+      <h1>
+        <a>{{ selectedTrade?.title }}</a>
+      </h1>
+      <h2>{{ selectedTrade?.pair }}</h2>
+      <div class="flex-row">
+        <div class="coin-base" [ngClass]="selectedTrade?.type">
+          <h2>{{ selectedTrade?.type }}</h2>
         </div>
-        <p>{{ selectedTrade?.date }}</p>
-      </mat-card-content>
-
-      <mat-card-content>
-        <p>{{ selectedTrade?.description }}</p>
-      </mat-card-content>
-    </mat-card>
+        <div class="time-left">
+          <img
+            src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png"
+            alt="clock"
+            class="small-image"
+          />
+          <p>{{ selectedTrade?.date }}</p>
+        </div>
+      </div>
+    </main>
+    <div class="card-attribute">
+      <p>
+        <span
+          ><a>{{ selectedTrade?.description }}</a></span
+        >
+      </p>
+    </div>
   </div>
 </app-layout>

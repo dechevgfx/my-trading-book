@@ -20,6 +20,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { TradeComponent } from './components/trade/trade.component';
 import { LikedComponent } from './containers/liked/liked.component';
 import { LikedTradesComponent } from './components/liked/liked-trades.component';
+import { RouterModule } from '@angular/router';
+import { ExternalLinkDirective } from './components/details/external-link.directive';
 
 
 
@@ -36,6 +38,7 @@ import { LikedTradesComponent } from './components/liked/liked-trades.component'
     TradeComponent,
     LikedComponent,
     LikedTradesComponent,
+    ExternalLinkDirective,
   ],
   imports: [
     CommonModule,
@@ -54,6 +57,7 @@ import { LikedTradesComponent } from './components/liked/liked-trades.component'
     ReactiveFormsModule,
     SharedModule,
     MatDialogModule,
+    RouterModule,
   ],
   exports: [],
   providers: [
