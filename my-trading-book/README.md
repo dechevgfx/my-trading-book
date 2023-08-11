@@ -154,4 +154,4 @@ If you encounter any issues during setup or development, refer to the official d
 
 ## Conclusion
 
-The Trading Idea Sharing App is designed to provide traders with a platform to share, exp
+The Trading Idea Sharing App is designed to provide traders with a platform to share their experiences in trading and their ideas.
