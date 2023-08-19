@@ -1,12 +1,19 @@
 <app-layout>
-    <mat-toolbar class="page-header" role="heading">
-      <h1>My Likes</h1>
-      <!-- <button mat-flat-button color="warn" (click)="uploadTrade()">Upload Trade</button> -->
-    </mat-toolbar>
-  
+  <mat-toolbar class="page-header" role="heading">
+    <h1>My Likes</h1>
+    <!-- <button mat-flat-button color="warn" (click)="uploadTrade()">Upload Trade</button> -->
+  </mat-toolbar>
+  <ng-container
+    *ngIf="likedTrades.length === 0; else likedTradesExist"
+    class="center-text"
+  >
+    <div class="center-text">
+      <p>YOU HAVE 0 LIKED TRADES</p>
+    </div>
+  </ng-container>
+
+  <ng-template #likedTradesExist>
     <app-user-trades [userTradesData]="likedTrades"></app-user-trades>
-  
-    <app-footer></app-footer>
-  </app-layout>
-  
-  
+  </ng-template>
+  <app-footer></app-footer>
+</app-layout>

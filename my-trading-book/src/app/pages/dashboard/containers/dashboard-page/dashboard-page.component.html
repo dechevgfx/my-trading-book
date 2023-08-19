@@ -4,8 +4,18 @@
     <!-- <button mat-flat-button color="warn" (click)="uploadTrade()">Upload Trade</button> -->
   </mat-toolbar>
 
-  <app-user-trades [userTradesData]="userTrades"></app-user-trades>
+  <ng-container
+    *ngIf="userTrades.length === 0; else tradesExist"
+    class="center-text"
+  >
+    <div class="center-text">
+      <p>YOU HAVE 0 UPLOADED TRADES</p>
+    </div>
+  </ng-container>
+
+  <ng-template #tradesExist>
+    <app-user-trades [userTradesData]="userTrades"></app-user-trades>
+  </ng-template>
 
   <app-footer></app-footer>
 </app-layout>
-
