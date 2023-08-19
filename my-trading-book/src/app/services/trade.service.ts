@@ -18,6 +18,10 @@ export class TradeService {
     return this.fs.collection<Trade>(`trades`).valueChanges({ idField: 'id' })
   }
 
+  getAllSorted() {
+    return this.fs.collection<Trade>('trades', ref => ref.orderBy('date')).valueChanges({ idField: 'id' });
+  }
+
   create(trade: Trade) {
     const newTrade = { ...trade, userId: this.userId, date: this.date }
     return this.fs.collection<Trade>(`trades`).add(<Trade><unknown>newTrade)

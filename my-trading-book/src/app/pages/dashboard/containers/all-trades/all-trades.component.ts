@@ -17,7 +17,7 @@ export class AllTradesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tradeService.getAll().subscribe((trades) => {
+    this.tradeService.getAllSorted().subscribe((trades) => {
       this.trades = trades
     })
   }
