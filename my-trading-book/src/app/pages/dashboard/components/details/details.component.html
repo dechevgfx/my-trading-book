@@ -1,37 +1,60 @@
 <app-layout>
-  <div class="card-container">
-    <a [externalLink]="selectedTrade?.image" class="hero-image-container">
+  <div class="blog-container">
+    <div class="blog-header">
+      <a [externalLink]="selectedTrade?.image" class="blog-cover">
+        <div class="hover-overlay">
+          <span>VIEW IN FULL SCREEN</span>
+        </div>
         <img
           class="hero-image"
           [src]="selectedTrade?.image"
           [alt]="selectedTrade?.image"
         />
       </a>
-    <main class="main-content">
-      <h1>
-        <a>{{ selectedTrade?.title }}</a>
-      </h1>
-      <h2>{{ selectedTrade?.pair }}</h2>
-      <div class="flex-row">
-        <div class="coin-base" [ngClass]="selectedTrade?.type">
-          <h2>{{ selectedTrade?.type }}</h2>
-        </div>
-        <div class="time-left">
-          <img
-            src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png"
-            alt="clock"
-            class="small-image"
-          />
-          <p>{{ selectedTrade?.date }}</p>
-        </div>
+      <div class="blog-author">
+        <h3>{{ selectedTrade?.title }}</h3>
       </div>
-    </main>
-    <div class="card-attribute">
-      <p>
-        <span
-          ><a>{{ selectedTrade?.description }}</a></span
-        >
-      </p>
+    </div>
+
+    <div class="blog-body">
+      <div class="blog-title">
+        <h1>{{ selectedTrade?.pair }}</h1>
+      </div>
+      <div class="blog-summary">
+        <p>{{ selectedTrade?.description }}</p>
+      </div>
+      <div class="blog-tags">
+        <ul>
+          <li>
+            <h2>{{ selectedTrade?.type }}</h2>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="blog-footer">
+      <ul>
+        <li class="published-date">{{ selectedTrade?.date }}</li>
+        <li class="shares">
+          <mat-icon
+            title="like"
+            class="icon-star"
+            *ngIf="!isOwner() && !isLikedByUser()"
+            (click)="like()"
+            >favorite_border</mat-icon
+          >
+          <mat-icon
+            title="dislike"
+            class="icon-liked"
+            *ngIf="isLikedByUser()"
+            (click)="dislike()"
+            >favorite_border</mat-icon
+          >
+          <a *ngIf="selectedTrade"
+            ><span class="numero">{{ selectedTrade.likedBy.length }}</span></a
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </app-layout>

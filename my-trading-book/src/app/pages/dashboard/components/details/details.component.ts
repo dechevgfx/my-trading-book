@@ -11,7 +11,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class DetailsComponent implements OnInit {
   selectedTrade: Trade | undefined;
-  numLikes: number = 0;
   isLiked: boolean = false;
   private userUid: string | null = null; // Store the user UID here
 
@@ -27,7 +26,6 @@ export class DetailsComponent implements OnInit {
         this.userUid = null;
       }
     });
-    
   }
 
   isLikedByUser() {
@@ -57,7 +55,10 @@ export class DetailsComponent implements OnInit {
         this.getTradeById(tradeId);
       }
     });
+
   }
+
+
 
   // Implement a function to get the trade by its ID
   getTradeById(tradeId: string): void {
@@ -71,5 +72,13 @@ export class DetailsComponent implements OnInit {
       this.tradeService.like(this.selectedTrade);
     }
   }
+
+  dislike(): void {
+    if (this.selectedTrade !== undefined) {
+      this.tradeService.disLike(this.selectedTrade);
+    }
+  }
+
+
 
 }

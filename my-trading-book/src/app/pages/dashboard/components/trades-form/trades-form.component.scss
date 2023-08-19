@@ -3,11 +3,11 @@
 
 .form {
   width: 100%;
-
-&__input {
-   width: 100%;
-   margin-top: 8px;
- }
+  background-color: rgb(28, 28, 28);
+  &__input {
+    width: 100%;
+    margin-top: 8px;
+  }
 }
 .form-actions {
   margin-top: 24px;

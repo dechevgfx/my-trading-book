@@ -1,6 +1,11 @@
 @import "src/app/styles/colors";
 @import "src/app/styles/font";
 
+* {
+  background-color: rgb(38, 38, 38);
+  padding: 3px;
+  margin: 3px;
+}
 .user-info-title {
   display: flex;
   align-items: center;
@@ -12,6 +17,7 @@
   display: grid;
   grid-template-columns: 200px 300px;
   gap: 24px;
+
   &-image {
     width: 175px;
     height: 175px;
