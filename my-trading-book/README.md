@@ -1,5 +1,5 @@
 # Trading Idea Sharing App Documentation
-# DEPLOYMENT LINK: 
+# DEPLOYMENT LINK: my-trading-book.vercel.app
 
 ## Project Overview
 
