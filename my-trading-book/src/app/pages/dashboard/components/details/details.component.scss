@@ -6,7 +6,9 @@
   font-family: "adelle-sans", sans-serif;
   font-weight: 100;
   margin: 48px auto;
-  width: 50rem;
+  max-width: 50rem; /* Change width to max-width for responsiveness */
+  padding: 20px; /* Add some padding for better mobile readability */
+  width: 95%; /* Adjust width for smaller screens */
 }
 
 .blog-container a {
@@ -85,11 +87,6 @@
 .blog-body {
   margin: 0 auto;
   width: 80%;
-}
-
-.video-body {
-  height: 100%;
-  width: 100%;
 }
 
 .blog-title h1 a {
@@ -204,4 +201,28 @@
 .icon-star:hover {
   color: #ff4d4d;
   cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+  .blog-container {
+    margin: 24px auto;
+    padding: 10px;
+  }
+
+  .blog-container a {
+    font-size: 0.9rem;
+  }
+
+  .blog-body {
+    width: 90%;
+  }
+
+  .blog-tags a {
+    font-size: 0.7rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    width: 4rem;
+  }
 }

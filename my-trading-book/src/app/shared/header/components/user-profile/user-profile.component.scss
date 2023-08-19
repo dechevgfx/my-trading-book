@@ -6,6 +6,9 @@
   padding: 3px;
   margin: 3px;
 }
+
+/* Base styles for all screen sizes */
+
 .user-info-title {
   display: flex;
   align-items: center;
@@ -56,3 +59,26 @@
     color: red;
   }
 }
+
+/* Media queries for responsiveness */
+
+@media (max-width: 768px) {
+  .user {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    grid-gap: 12px;
+    text-align: center;
+    justify-items: center;
+
+    &-image {
+      width: 150px;
+      height: 150px;
+    }
+
+    &-data {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
+
+/* Add more media queries as needed for specific breakpoints */
