@@ -19,7 +19,7 @@ export class TradeService {
   }
 
   getAllSorted() {
-    return this.fs.collection<Trade>('trades', ref => ref.orderBy('date')).valueChanges({ idField: 'id' });
+    return this.fs.collection<Trade>('trades', ref => ref.orderBy('date', 'desc')).valueChanges({ idField: 'id' });
   }
 
   create(trade: Trade) {

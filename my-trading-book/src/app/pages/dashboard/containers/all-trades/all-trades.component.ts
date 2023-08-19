@@ -22,11 +22,4 @@ export class AllTradesComponent implements OnInit {
     })
   }
 
-  openDetailsDialog(trade: any): void {
-    const dialogRef = this.dialog.open(DetailsComponent, {
-      width: '500px', // Adjust the width as needed
-      data: trade
-    });
-  }
-
 }
