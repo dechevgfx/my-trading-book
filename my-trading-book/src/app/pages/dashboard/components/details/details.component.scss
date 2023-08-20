@@ -260,7 +260,6 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
   border-left: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
@@ -290,6 +289,7 @@
 
 input[type="text"] {
   background-color: transparent;
+  color: rgb(239, 239, 239);
   width: 96%;
   padding: 10px;
   border: 1px solid #ccc;
