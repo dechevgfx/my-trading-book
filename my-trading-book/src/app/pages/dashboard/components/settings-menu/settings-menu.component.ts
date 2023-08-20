@@ -31,8 +31,10 @@ export class SettingsMenuComponent {
     const pathComponents = pathname.split('/');
     const lastPathComponent = pathComponents[pathComponents.length - 1];
 
+    const tradeId = lastPathComponent;
+
     if (this.data !== undefined) {
-      for (const comment of this.data.comments) {
+      for (const comment of this.data.comments || []) {
         if (comment.userId === this.userUid) {
           return true; // Exit and return true once a matching comment is found
         }

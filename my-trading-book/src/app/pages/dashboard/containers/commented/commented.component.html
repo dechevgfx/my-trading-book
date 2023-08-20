@@ -3,7 +3,7 @@
     <h1>My Commented Trades</h1>
   </mat-toolbar>
   <ng-container
-    *ngIf="commentedTrades.length === 0; else commentedTradesExist"
+    *ngIf="!commentedTrades; else commentedTradesExist"
     class="center-text"
   >
     <div class="center-text">

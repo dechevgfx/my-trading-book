@@ -4,7 +4,7 @@
     <!-- <button mat-flat-button color="warn" (click)="uploadTrade()">Upload Trade</button> -->
   </mat-toolbar>
   <ng-container
-    *ngIf="likedTrades.length === 0; else likedTradesExist"
+    *ngIf="!likedTrades else likedTradesExist"
     class="center-text"
   >
     <div class="center-text">
