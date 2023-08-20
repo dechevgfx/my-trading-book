@@ -54,7 +54,49 @@
             ><span class="numero">{{ selectedTrade.likedBy.length }}</span></a
           >
         </li>
+        <li class="comments">
+          <mat-icon
+            title="comment"
+            class="comment-icon"
+            (click)="openComments()"
+            >comment</mat-icon
+          >
+        </li>
       </ul>
+      <div class="comments-section" *ngIf="showComments">
+        <h2>Comments</h2>
+        <div class="comment-list">
+          <div class="comment" *ngFor="let comment of selectedTrade?.comments">
+            <div class="comment-content">
+              <span class="comment-user">{{ comment.userName }}</span>
+              <p class="comment-text">{{ comment.comment }}</p>
+            </div>
+            <div class="grid">
+              <div class="comment-date">
+                <p>{{ comment.date }}</p>
+              </div>
+              <div class="comment-del">
+                <mat-icon
+                  title="Delete Comment"
+                  class="delete-comment"
+                  *ngIf="comment.userId === user()"
+                  (click)="deleteComment(selectedTrade, comment)"
+                >
+                  close
+                </mat-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="new-comment">
+          <input
+            type="text"
+            placeholder="Add a comment"
+            [(ngModel)]="newComment"
+          />
+          <button (click)="addComment()">Add Comment</button>
+        </div>
+      </div>
     </div>
   </div>
 </app-layout>

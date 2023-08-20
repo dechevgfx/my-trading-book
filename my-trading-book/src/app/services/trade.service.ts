@@ -2,17 +2,18 @@ import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Injectable } from "@angular/core";
 import { Trade } from "src/app/models/trade";
 import firebase from 'firebase/compat/app'; // Step 1: Import firebase namespace
-
+import { map } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
 export class TradeService {
   userId: string | null
+  userName: string | null
   date: string = firebase.firestore.Timestamp.now().toDate().toLocaleString();
   constructor(private fs: AngularFirestore) {
-    this.userId = localStorage.getItem('uid')
+    this.userId = localStorage.getItem('uid');
+    this.userName = localStorage.getItem('name');
   }
-
 
   getAll() {
     return this.fs.collection<Trade>(`trades`).valueChanges({ idField: 'id' })
@@ -48,6 +49,27 @@ export class TradeService {
     return this.fs.collection<Trade>(`trades`, ref => ref.where('likedBy', 'array-contains', this.userId)).valueChanges({ idField: 'id' });
   }
 
+  getTradesCommentedByCurrentUser() {
+    return this.fs.collection<Trade>('trades').valueChanges({ idField: 'id' })
+      .pipe(
+        map(trades => {
+          const tradesCommentedByCurrentUser: Trade[] = [];
+          for (const trade of trades) {
+            if (trade.comments) {
+              for (const comment of trade.comments) {
+                if (comment.userId === this.userId) {
+                  tradesCommentedByCurrentUser.push(trade);
+                  break; // Exit the inner loop once a matching comment is found
+                }
+              }
+            }
+          }
+          return tradesCommentedByCurrentUser;
+        })
+      );
+  }
+
+
   like(trade: Trade) {
 
     if (!trade.likedBy) {
@@ -81,6 +103,47 @@ export class TradeService {
     console.log("Successfully unliked.");
 
     return this.fs.collection<Trade>('trades').doc(trade.id).set(trade, { merge: true });
+  }
+
+  addComment(trade: Trade, comment: string) {
+    trade.comments = trade.comments || [];
+    let now = new Date();
+    let formattedDate = now.toLocaleString('eu', {
+      timeZone: 'Europe/Bucharest',
+      hour12: false, // Display in 24-hour format
+    }).replace(' GMT+3', '');
+    const newComment = {
+      id: (Math.random() * 1000).toString(),
+      comment: comment,
+      userId: this.userId?.toString() as string,
+      userName: this.userName?.toString() as string,
+      date: formattedDate
+    };
+
+    trade.comments.push(newComment);
+
+    return this.fs.collection<Trade>('trades').doc(trade.id).set(trade, { merge: true });
+  }
+
+  deleteComment(selectedTrade: Trade, commentToDelete: any) {
+    if (selectedTrade && selectedTrade.comments) {
+      // Find the index of the comment to delete within the selected trade's comments array
+      const commentIndex = selectedTrade.comments.findIndex((comment: any) => comment.id === commentToDelete.id);
+
+      if (commentIndex !== -1) {
+        // Remove the comment from the selected trade's comments array
+        selectedTrade.comments.splice(commentIndex, 1);
+
+        // Update the trade in the Firestore database to reflect the removed comment
+        this.fs.collection<Trade>('trades').doc(selectedTrade.id).update({ comments: selectedTrade.comments })
+          .then(() => {
+            console.log('Comment deleted successfully from the database.');
+          })
+          .catch((error) => {
+            console.error('Error deleting comment from the database:', error);
+          });
+      }
+    }
   }
 
 }

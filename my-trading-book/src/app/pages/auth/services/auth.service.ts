@@ -30,6 +30,7 @@ export class AuthService {
   login(email: string, password: string) {
     this.auth.signInWithEmailAndPassword(email, password).then((data) => {
       localStorage.setItem('uid', data.user?.uid!)
+      localStorage.setItem('name', data.user?.displayName!)
       this.saveUserDataToStore(data.user)
       this.router.navigate([this.routers.DASHBOARD]);
     })
@@ -38,6 +39,7 @@ export class AuthService {
   loginGoogle() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((data) => {
       localStorage.setItem('uid', data.user?.uid!)
+      localStorage.setItem('name', data.user?.displayName!)
       this.saveUserDataToStore(data.user)
       this.tradeService.setUserId(data.user?.uid!);
       this.router.navigate([this.routers.DASHBOARD]);
@@ -47,6 +49,7 @@ export class AuthService {
   signIn(email: string, password: string) {
     this.auth.createUserWithEmailAndPassword(email, password).then((data) => {
       localStorage.setItem('uid', data.user?.uid!)
+      localStorage.setItem('name', data.user?.displayName!)
       this.saveUserDataToStore(data.user)
       this.tradeService.setUserId(data.user?.uid!);
       this.router.navigate([this.routers.DASHBOARD]);
@@ -57,6 +60,8 @@ export class AuthService {
     this.auth.signOut().then(() => {
       localStorage.removeItem('uid')
       localStorage.removeItem('user')
+      localStorage.removeItem('name')
+
       this.tradeService.setUserId(null);
       this.router.navigate([this.routers.LOGIN]);
     })

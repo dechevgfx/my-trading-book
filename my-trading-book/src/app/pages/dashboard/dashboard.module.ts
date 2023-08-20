@@ -22,7 +22,8 @@ import { LikedComponent } from './containers/liked/liked.component';
 import { LikedTradesComponent } from './components/liked/liked-trades.component';
 import { RouterModule } from '@angular/router';
 import { ExternalLinkDirective } from './components/details/external-link.directive';
-
+import { ElapsedTimePipe } from './components/details/elapse-time.pipe';
+import { CommentedComponent } from './containers/commented/commented.component';
 
 
 
@@ -38,7 +39,9 @@ import { ExternalLinkDirective } from './components/details/external-link.direct
     TradeComponent,
     LikedComponent,
     LikedTradesComponent,
+    CommentedComponent,
     ExternalLinkDirective,
+    ElapsedTimePipe,
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { AllTradesComponent, DashboardPageComponent } from './pages/dashboard/co
 import { DetailsComponent } from './pages/dashboard/components/details/details.component';
 import { LiveChartComponent } from './shared/live-chart/live-chart.component';
 import { LikedComponent } from './pages/dashboard/containers/liked/liked.component';
+import { CommentedComponent } from './pages/dashboard/containers/commented/commented.component';
 
 const redirectLoggedInToItems = () => redirectLoggedInTo(['dashboard']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
@@ -34,6 +35,12 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
     component: LikedComponent
+  },
+  {
+    path: 'commented',
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+    component: CommentedComponent
   },
   {
     path: 'dashboard',

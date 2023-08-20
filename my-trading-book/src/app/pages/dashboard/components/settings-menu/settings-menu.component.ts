@@ -4,6 +4,7 @@ import { Trade, User } from 'src/app/models';
 import { StorageService, TradeService, UserService } from 'src/app/services';
 import { TradeFormComponent } from '../trades-form/trades-form.component';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-settings-menu',
   templateUrl: './settings-menu.component.html',
@@ -13,7 +14,7 @@ export class SettingsMenuComponent {
   @Input() data!: Trade
   private userUid: string | null = null; // Store the user UID here
 
-  constructor(private dialog: MatDialog, private userTradeService: TradeService, private auth: AngularFireAuth) {
+  constructor(private dialog: MatDialog, private userTradeService: TradeService, private router: Router, private auth: AngularFireAuth) {
     this.auth.authState.subscribe((user) => {
       if (user) {
         this.userUid = user.uid;
@@ -22,6 +23,24 @@ export class SettingsMenuComponent {
       }
     });
   }
+
+
+  isCommentedByUser() {
+    const pathname = window.location.pathname;
+
+    const pathComponents = pathname.split('/');
+    const lastPathComponent = pathComponents[pathComponents.length - 1];
+
+    if (this.data !== undefined) {
+      for (const comment of this.data.comments) {
+        if (comment.userId === this.userUid) {
+          return true; // Exit and return true once a matching comment is found
+        }
+      }
+    }
+    return false; // Return false if no matching comment is found
+  }
+
 
   isLikedByUser() {
     const pathname = window.location.pathname;
@@ -68,6 +87,10 @@ export class SettingsMenuComponent {
 
   disLike() {
     this.userTradeService.disLike(this.data)
+  }
+
+  viewDetails() {
+    this.router.navigate(['/all-trades', this.data.id])
   }
 
 }

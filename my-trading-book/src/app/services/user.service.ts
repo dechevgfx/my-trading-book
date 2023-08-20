@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { Observable } from 'rxjs';
 import { User } from "src/app/models";
 
 @Injectable({
@@ -8,10 +9,9 @@ import { User } from "src/app/models";
 export class UserService {
   constructor(private fs: AngularFirestore) {
   }
-  
-
   userData() {
     const userId = localStorage.getItem('uid')
     return this.fs.collection<User>('users').doc(`${userId}`).valueChanges()
   }
+
 }

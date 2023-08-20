@@ -1,0 +1,18 @@
+<app-layout>
+  <mat-toolbar class="page-header" role="heading">
+    <h1>My Commented Trades</h1>
+  </mat-toolbar>
+  <ng-container
+    *ngIf="commentedTrades.length === 0; else commentedTradesExist"
+    class="center-text"
+  >
+    <div class="center-text">
+      <p>YOU HAVE 0 COMMENTED TRADES</p>
+    </div>
+  </ng-container>
+
+  <ng-template #commentedTradesExist>
+    <app-user-trades [userTradesData]="commentedTrades"></app-user-trades>
+  </ng-template>
+  <app-footer></app-footer>
+</app-layout>

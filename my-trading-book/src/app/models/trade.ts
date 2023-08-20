@@ -6,6 +6,7 @@ export type Trade = {
   type: string,
   description: string,
   likedBy: string[],
+  comments: [{ id: string, comment: string, date: string, userId: string, userName: string }],
   userId: string,
   date: Date,
 }
